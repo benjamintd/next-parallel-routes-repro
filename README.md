@@ -1,34 +1,22 @@
-# Unzoomed
+# Bug description
 
-Unzoomed is a game about guessing cities on a satellite map.
+There are several bugs associated with nesting parallel routes into a route group, from what I can understand.
 
-## Technologies
+- The project does not build on Vercel, despite building locally with `npm run build && npm run start`
+- Navigation between some pages fails to render correctly
 
-This app is written in Next.js (App router), using Tailwind for styling. It is hosted on Vercel.
-The list of cities is stored in Vercel KV (Redis).
-The game data is stored in Firebase with anonymous sessions.
+## Steps to reproduce
 
-## Installation
-
-```
-$ npm install
-$ npm run dev
-```
-
-## Updating the data
-
-The data comes from a Wikidata query, along with the list of cities contained in the [Global Cities](https://en.wikipedia.org/wiki/Globalization_and_World_Cities_Research_Network) article.
-
-To fetch new source data, run
+- `npx vercel build` fails with the following error:
 
 ```
-$ bun run src/data/fetchDataSources.ts
+Error: Unable to find lambda for route: /[lang]/default
 ```
 
-In order to turn this data into a finalized list of cities, run
+- When running the built (or dev) version locally (`npm run build && npm run start`):
+  - Heading to "http://localhost:3000/" works
+  - Heading to "http://localhost:3000/about" works
+  - Navigation between the home and "/sign-in" pages works, client-side navigation included
+  - However, navigation between "/about" and "/" (via the "Close" button) keeps the modal open.
 
-```
-$ bun run src/data/preprocess.ts
-```
-
-All those files are under version control to make sure they are deployed along with the code.
+This has been tested on next@14.1.0 and next@canary (14.1.1-canary.9)

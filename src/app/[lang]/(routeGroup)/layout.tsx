@@ -3,18 +3,18 @@ import { Locale } from "@/i18n/settings";
 export const revalidate = 60;
 
 export default async function GameLayout({
-  main,
+  children,
   params: { lang },
   modal,
 }: {
-  main: React.ReactNode;
+  children: React.ReactNode;
   params: { lang: Locale };
   modal: React.ReactNode;
 }) {
   return (
     <div>
       <p>lang: {lang}</p>
-      {main}
+      {children}
       {modal}
     </div>
   );
