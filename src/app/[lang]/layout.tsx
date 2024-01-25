@@ -1,5 +1,7 @@
 import "@/app/globals.css";
 
+// START
+// Comment everything between START and END to solve the bug.
 export async function generateStaticParams() {
   return ["en", "fr"].map((locale) => ({ lang: locale }));
 }
@@ -26,6 +28,7 @@ export async function generateMetadata({
 
   return metadata;
 }
+// END
 
 export const revalidate = 60;
 
