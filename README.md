@@ -1,7 +1,5 @@
 # Bug description
 
-There are several bugs associated with nesting parallel routes into a route group, from what I can understand.
-
 - Navigation between some pages fails to render correctly
 
 ## Steps to reproduce
