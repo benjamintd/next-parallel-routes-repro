@@ -9,7 +9,7 @@ export default async function HomePage({
 }) {
   return (
     <div>
-      <h1>main</h1>
+      <h1>main ({lang})</h1>
       <nav className="flex gap-4">
         <Link className="underline" href={`/${lang}/about`}>
           about link
