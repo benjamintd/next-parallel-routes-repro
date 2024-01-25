@@ -1,3 +1,5 @@
+import "@/app/globals.css";
+
 export async function generateStaticParams() {
   return ["en", "fr"].map((locale) => ({ lang: locale }));
 }
@@ -36,7 +38,8 @@ export default async function LayoutPage({
 }) {
   return (
     <html lang={lang}>
-      <body>{children}</body>
+      <body className="p-6">{children}</body>
+      <footer className="p-6">Footer</footer>
     </html>
   );
 }
